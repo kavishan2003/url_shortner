@@ -15,3 +15,6 @@ Route::get('/shortner', function () {
 
 
 Route::get('/url-shortner', [shortnerController::class, 'shorten']);
+
+
+// Route::get('')

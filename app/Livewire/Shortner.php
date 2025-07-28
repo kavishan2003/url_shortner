@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Livewire;
+
+use Livewire\Component;
 
 use App\Models\ShortUrl;
 use Illuminate\Support\Str;
@@ -8,20 +10,20 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 
-class shortnerController extends Controller
+class Shortner extends Component
 {
-    public function shorten(Request $request)
+
+    public $users_url;
+
+
+    public function shortning()
     {
-
-        // logger('called');
-
-        $request->validate([
+        // dd(1);
+        $this->users_url->validate([
             'url' => 'required|url'
         ]);
 
-        // dd($request->input('url'));
-
-        $url = $request->input('url');
+        $url = $this->users_ur;
 
         try {
             $response = Http::timeout(5)->get($url); // Set timeout in seconds
@@ -35,7 +37,7 @@ class shortnerController extends Controller
 
         //my function to test url
 
-        $existing = ShortUrl::where('original_url', $request->url)->first();
+        $existing = ShortUrl::where('original_url', $this->users_ur)->first();
         if ($existing) return response()->json(['short' => url($existing->short_code)]);
 
         $code = Str::random(6);
@@ -44,17 +46,16 @@ class shortnerController extends Controller
         }
 
         ShortUrl::create([
-            'original_url' => $request->url,
+            'original_url' => $this->users_ur,
             'short_code' => $code
         ]);
 
         // $this->dispatch('');
-        return response()->json($code);
+        return response()->json(['short' => true]);
     }
 
-    public function redirect($code)
+    public function render()
     {
-        $short = ShortUrl::where('short_code', $code)->firstOrFail();
-        return redirect()->to($short->original_url);
+        return view('livewire.shortner');
     }
 }

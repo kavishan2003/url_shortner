@@ -1,0 +1,7 @@
+   /* Custom styles for better font rendering */
+   body {
+       font-family: 'Inter', sans-serif;
+   }
+
+   /* You may want to host your own fonts for production */
+   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');

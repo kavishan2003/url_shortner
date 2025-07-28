@@ -2,11 +2,18 @@
 
 @section('content')
 
-    <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <body class="bg-gray-100 flex items-center justify-center bg-gradient-to-br from-yellow-100 via-pink-300 min-h-screen to-purple-400">
 
-        <div class="w-full max-w-2xl mx-auto p-4">
+        <div class="w-full max-w-2xl mx-auto p-4 ">
             <div class="text-center mb-8">
-                <h1 class="text-3xl font-bold text-gray-800">Boost your campaigns with smarter short links.</h1>
+
+                <h1 class="mb-2 md:text-4xl font-bold tracking-tighter text-6xl text-gray-900"><i
+                        class="fa-solid fa-link fa-rotate-by" style="color: #3860ff; --fa-rotate-angle: 180deg;"></i>  URL
+                    Shortening Built
+                    for
+                    Developers</h1>
+
+                <p class="text-lg  text-gray-500">Boost your campaigns with smarter short links.</p>
             </div>
             <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
                 <form id="shortener-form" action="/url-shortner">
@@ -14,7 +21,7 @@
                     <div>
                         <label for="url-to-shorten" class="block text-sm font-medium text-gray-700 mb-1">URL to
                             shorten</label>
-                        <input type="url" name="url-to-shorten" id="url-to-shorten"
+                        <input type="url" name="url" id="url-to-shorten" value=""
                             class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         @error('url')
                             <span class="text-red-600">{{ $message }}</span>

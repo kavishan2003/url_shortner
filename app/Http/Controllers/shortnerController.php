@@ -6,9 +6,7 @@ use App\Models\ShortUrl;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-
-
+use Illuminate\Support\Facades\Http;
 
 class shortnerController extends Controller
 {
@@ -18,6 +16,20 @@ class shortnerController extends Controller
         $request->validate([
             'url' => 'required|url'
         ]);
+
+        // dd($request->input('url'));
+
+        $url = $request->input('url');
+
+        try {
+            $response = Http::timeout(5)->get($url); // Set timeout in seconds
+
+            if (!($response->successful())) {
+                return back()->withErrors('error', 'URL is unreachable!');
+            }
+        } catch (\Exception $e) {
+            // return back()->withErrors(['url' => 'URL format is valid, but the site is not reachable. Error: ' . $e->getMessage()])->withInput();
+        }
 
         //my function to test url
 
@@ -29,11 +41,12 @@ class shortnerController extends Controller
             $code = Str::random(6);
         }
 
-        $short = ShortUrl::create([
+        ShortUrl::create([
             'original_url' => $request->url,
             'short_code' => $code
         ]);
 
+        // $this->dispatch('');
         return response()->json(['short' => url($code)]);
     }
 

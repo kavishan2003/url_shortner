@@ -13,27 +13,20 @@ class shortnerController extends Controller
     public function shorten(Request $request)
     {
 
-        // logger('called');
-
         $request->validate([
             'url' => 'required|url'
         ]);
 
-        // dd($request->input('url'));
-
         $url = $request->input('url');
 
         try {
-            $response = Http::timeout(5)->get($url); // Set timeout in seconds
+            $response = Http::timeout(5)->get($url);
 
             if (!($response->successful())) {
                 return back()->withErrors('error', 'URL is unreachable!');
             }
         } catch (\Exception $e) {
-            // return back()->withErrors(['url' => 'URL format is valid, but the site is not reachable. Error: ' . $e->getMessage()])->withInput();
         }
-
-        //my function to test url
 
         $existing = ShortUrl::where('original_url', $request->url)->first();
         if ($existing) return response()->json(['short' => url($existing->short_code)]);
@@ -48,7 +41,6 @@ class shortnerController extends Controller
             'short_code' => $code
         ]);
 
-        // $this->dispatch('');
         return response()->json($code);
     }
 

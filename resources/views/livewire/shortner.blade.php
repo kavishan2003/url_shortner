@@ -65,7 +65,7 @@
                 <div class="mt-4 bg-white p-4 rounded-md border border-gray-200">
                     <label class="block text-sm font-medium text-gray-500">Copy the link</label>
                     <div class="flex items-center justify-between mt-1">
-                        <a href="https://iny.one/UrecIB" target="_blank" id="short-link"
+                        <a href="https://" target="_blank" id="short-link"
                             class="text-indigo-600 font-semibold truncate hover:underline"></a>
                         <div class="flex items-center space-x-2 ml-2">
                             <button id="copy-btn" title="Copy to clipboard"
@@ -76,7 +76,7 @@
                                         d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m9.375 0-9.375 0" />
                                 </svg>
                             </button>
-                            <a href="https://iny.one/UrecIB" target="_blank" title="Open in new tab" id="newTab"
+                            <a href="https://" target="_blank" title="Open in new tab" id="newTab"
                                 class="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -106,13 +106,6 @@
         const newTab = document.getElementById('newTab');
 
 
-        // In a real app, you would make an API call here to get the shortened URL.
-        // For this example, we 'll just show the result section.
-        // shortenerForm.addEventListener('submit', function(e) {
-        //     e.preventDefault();
-        //     resultSection.classList.remove('hidden');
-        // });
-
         clearBtn.addEventListener('click', function() {
             shortenerForm.reset();
             resultSection.classList.add('hidden');
@@ -131,11 +124,10 @@
         });
         document.getElementById("shorten-btn").addEventListener("click", function(event) {
             event.preventDefault();
-            // alert('hit');
+
             const urlValue = url.value;
 
             console.log(urlValue);
-
 
             console.log('called')
 
@@ -153,15 +145,4 @@
 
     });
 
-
-
-    // .then(res => res.json())
-    //     .then(data => {
-    //         if (data.short) {
-    //             shortenerForm.addEventListener('submit', function(e) {
-    //                 e.preventDefault();
-    //                 resultSection.classList.remove('hidden');
-    //             }); // ✅ Call your JS function here
-    //         }
-    //     });
 </script>

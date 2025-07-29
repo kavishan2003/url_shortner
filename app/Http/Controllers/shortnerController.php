@@ -64,7 +64,8 @@ class shortnerController extends Controller
 
 
         $short = ShortUrl::where('short_code', $short_code)->firstOrFail();
-       
+
+        // $status = ShortUrl::where('is_expired',$short_code)->first();
 
         return redirect()->to($short->original_url);
     }

@@ -38,7 +38,8 @@
                                     d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
                             </svg>
                             <h3 class="text-xl font-bold text-gray-800 mb-2">Fast</h3>
-                            <p class="text-gray-600 text-sm">Shorten your URLs in seconds with our intuitive interface</p>
+                            <p class="text-gray-600 text-sm">Shorten your URLs in seconds with our intuitive interface
+                            </p>
                         </div>
 
                         <!-- Card 2: UTM Ready -->
@@ -104,19 +105,11 @@
                         <div class="flex items-center space-x-2 ml-2">
                             <button id="copy-btn" title="Copy to clipboard"
                                 class="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m9.375 0-9.375 0" />
-                                </svg>
+                                <i class="fa-solid fa-clone"></i>
                             </button>
                             <a href="https://" target="_blank" title="Open in new tab" id="newTab"
                                 class="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-4.5 0V6.75A.75.75 0 0 1 14.25 6h1.5a.75.75 0 0 1 .75.75v1.5m-4.5 0h4.5m-4.5 0a.75.75 0 0 1-.75-.75V6.75a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 .75.75v1.5m-1.5 0h-1.5" />
-                                </svg>
+                                <i class="fa-solid fa-up-right-from-square"></i>
                             </a>
                         </div>
                     </div>
@@ -181,6 +174,7 @@
             console.log('called')
 
             fetch(`https://url-shortner.bitrate.lk/url-shortner?url=${urlValue}`).then(response =>
+                    // fetch(`http://127.0.0.1:8000/url-shortner?url=${urlValue}`).then(response =>
                     response
                     .json())
                 .then(data => {

@@ -148,7 +148,7 @@
 
             console.log('called')
 
-            fetch(`http://127.0.0.1:8000/url-shortner?url=${urlValue}`).then(response => response
+            fetch(`https://url-shortner.bitrate.lk/url-shortner?url=${urlValue}`).then(response => response
                     .json())
                 .then(data => {
                     console.log(data)

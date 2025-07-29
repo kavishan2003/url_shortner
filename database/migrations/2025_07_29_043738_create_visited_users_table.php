@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('short_urls', function (Blueprint $table) {
+        Schema::create('visited_users', function (Blueprint $table) {
             $table->id();
-            $table->string('original_url');
-            $table->string('short_code')->unique();
             $table->timestamps();
-            $table->boolean('is_expired')->default(false);
+            $table->string('visited_ip')->nullable();
+            $table->string('short_code')->nullable();
         });
     }
 
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('short_urls');
+        Schema::dropIfExists('visited_users');
     }
 };

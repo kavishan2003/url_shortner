@@ -4,11 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ShortUrl extends Model
+class visited_users extends Model
 {
     protected $fillable = [
-        'original_url',
         'short_code',
-        'is_expired'
+        'visited_ip'
     ];
 }

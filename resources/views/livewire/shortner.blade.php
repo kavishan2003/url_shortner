@@ -18,6 +18,8 @@
                         shorten</label>
                     <input type="url" name="url" id="url-to-shorten" value=""
                         class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <label for="error" id="url-error"
+                        class="hidden block text-sm font-medium text-red-600 mb-1">Please enter a valid URL</label>
                     @error('url')
                         <span class="text-red-600">{{ $message }}</span>
                     @enderror
@@ -104,6 +106,8 @@
         const copyFeedback = document.getElementById('copy-feedback');
         const url = document.getElementById('url-to-shorten');
         const newTab = document.getElementById('newTab');
+        const urlError = document.getElementById('url-error');
+
 
 
         clearBtn.addEventListener('click', function() {
@@ -124,9 +128,22 @@
         });
         document.getElementById("shorten-btn").addEventListener("click", function(event) {
             event.preventDefault();
-
+            // alert('hit');
             const urlValue = url.value;
+            // console.log(urlValue);
 
+            if (urlValue == '') {
+                urlError.textContent = "URL cannot be empty.";
+                urlError.classList.remove('hidden');
+                return;
+            }
+
+            if (!isValidURL(urlValue)) {
+                urlError.textContent = "Please enter a valid URL.";
+                urlError.classList.remove('hidden');
+                e.preventDefault();
+                return;
+            }
             console.log(urlValue);
 
             console.log('called')
@@ -143,6 +160,14 @@
                 })
         });
 
-    });
+        function isValidURL(string) {
+            try {
+                new URL(string);
+                return true;
+            } catch (_) {
+                return false;
+            }
+        }
 
+    });
 </script>

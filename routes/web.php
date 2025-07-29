@@ -14,10 +14,11 @@ Route::get('/shortner', function () {
 
 
 
-Route::get('/url-shortner', [shortnerController::class, 'shorten']);
+Route::middleware('throttle:60,1')->group(function () {
 
+    Route::get('/url-shortner', [shortnerController::class, 'shorten']);
 
+    Route::get('{shortCode}', [shortnerController::class, 'redirect'])->where('shortCode', '[A-Za-z0-9]+');
 
-// Route::get('/127.0.0.1:8000/{code}', [shortnerController::class, 'redirect'])->name('reports-annual')->where('code', '[0-9]+[a-z]+[A-Z]');
-
-Route::get('{shortCode}', [shortnerController::class, 'redirect'])->where('shortCode', '[A-Za-z0-9]+');
+    // Route::post('/send-data', [shortnerController::class, 'handleData']);
+});

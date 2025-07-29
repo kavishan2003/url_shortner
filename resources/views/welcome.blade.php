@@ -63,9 +63,9 @@
                 <div class="mt-8 flex justify-center space-x-4">
                     <a href="{{ route('shortner') }}" class="bg-gray-900 text-white font-semibold px-6 py-3 rounded-lg hover:bg-black">Get
                         started</a>
-                    <a href="#"
+                    {{-- <a href="#"
                         class="bg-white text-gray-900 font-semibold px-6 py-3 rounded-lg border border-gray-300 hover:bg-gray-100">Get
-                        a demo</a>
+                        a demo</a> --}}
                 </div>
             </main>
         </div>

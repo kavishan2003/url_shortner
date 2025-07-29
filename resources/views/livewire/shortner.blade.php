@@ -26,14 +26,46 @@
                 </div>
 
                 <div class="mt-6">
-                    <label class="block text-sm font-medium text-gray-700">UTM Parameters (optional)</label>
+                    <label class="block text-sm font-medium text-gray-700">You will have</label>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-                        <input type="text" id="utm_source" placeholder="utm_source"
-                            class="block w-full px-4 py-3 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <input type="text" id="utm_medium" placeholder="utm_medium"
-                            class="block w-full px-4 py-3 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <input type="text" id="utm_campaign" placeholder="utm_campaign"
-                            class="block w-full px-4 py-3 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+
+                        <div
+                            class="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full text-center flex flex-col items-center">
+                            <!-- Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-600 mb-4"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                            </svg>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Fast</h3>
+                            <p class="text-gray-600 text-sm">Shorten your URLs in seconds with our intuitive interface</p>
+                        </div>
+
+                        <!-- Card 2: UTM Ready -->
+                        <div
+                            class="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full text-center flex flex-col items-center">
+                            <!-- Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-600 mb-4"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                            </svg>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">UTM Ready</h3>
+                            <p class="text-gray-600 text-sm">Automatically add UTM parameters for tracking</p>
+                        </div>
+
+                        <!-- Card 3: Easy to use -->
+                        <div
+                            class="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full text-center flex flex-col items-center">
+                            <!-- Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-600 mb-4"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75" />
+                            </svg>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Easy to use</h3>
+                            <p class="text-gray-600 text-sm">Copy and share your short URLs with one click</p>
+                        </div>
                     </div>
                 </div>
 
@@ -148,7 +180,8 @@
 
             console.log('called')
 
-            fetch(`https://url-shortner.bitrate.lk/url-shortner?url=${urlValue}`).then(response => response
+            fetch(`https://url-shortner.bitrate.lk/url-shortner?url=${urlValue}`).then(response =>
+                    response
                     .json())
                 .then(data => {
                     console.log(data)

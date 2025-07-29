@@ -64,16 +64,7 @@ class shortnerController extends Controller
 
 
         $short = ShortUrl::where('short_code', $short_code)->firstOrFail();
-        if (Carbon::parse($short->created_at)->diffInHours(now()) >= 24) {
-            $short->is_expired = true;
-            $short->save();
-            // abort(404, 'This short URL is either expired or does not exist.');
-        }
-
-        // if ($short->is_expired = true) {
-        //       abort(404, 'This short URL is either expired or does not exist.');
-        // }
-
+       
 
         return redirect()->to($short->original_url);
     }
